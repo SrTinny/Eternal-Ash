@@ -1,0 +1,30 @@
+[
+    {
+        "id": "atk_slash_01",
+        "name": "Corte Rápido",
+        "type": "attack",
+        "energyCost": 0,
+        "description": "Um golpe rápido com a arma equipada. Causa dano físico baseado na Força."
+    },
+    {
+        "id": "def_block",
+        "name": "Bloqueio",
+        "type": "defense",
+        "energyCost": 1,
+        "description": "Reduz parte do dano recebido neste turno. Escala com Defesa."
+    },
+    {
+        "id": "atk_fireball",
+        "name": "Bola de Fogo",
+        "type": "attack",
+        "energyCost": 2,
+        "description": "Lança uma bola de fogo que causa dano mágico. Escala com Poder Mágico."
+    },
+    {
+        "id": "def_shield",
+        "name": "Escudo Mágico",
+        "type": "defense",
+        "energyCost": 3,
+        "description": "Cria um escudo mágico que reduz o dano recebido. Escala com Poder Mágico."
+    }
+]

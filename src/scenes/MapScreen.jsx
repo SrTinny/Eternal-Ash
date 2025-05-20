@@ -1,10 +1,10 @@
 import { useState } from "react";
 import InventoryHUD from "../components/InvetoryHUD";
-
-
+import CardLoader from "../components/CardLoader";
 
 function MapScreen() {
   const [showQuests, setShowQuests] = useState(false);
+  const [deckVisible, setDeckVisible] = useState(false);
 
   return (
     <div className="relative w-full h-screen overflow-auto bg-black">
@@ -27,6 +27,16 @@ function MapScreen() {
         </button>
       </div>
 
+      {/* BOTÃO DE DECK */}
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20">
+        <button
+          className="bg-black/80 text-white px-4 py-2 rounded hover:bg-white hover:text-black transition"
+          onClick={() => setDeckVisible(true)}
+        >
+          🃏 Minhas Cartas
+        </button>
+      </div>
+
       {/* BOTÃO DE MISSÕES */}
       <div className="absolute top-4 right-4 z-20">
         <button
@@ -40,10 +50,14 @@ function MapScreen() {
       {/* LISTA DE MISSÕES */}
       {showQuests && (
         <div className="absolute top-20 right-4 z-20 w-72 max-h-[60%] overflow-y-auto bg-black/80 text-white p-4 rounded shadow-xl space-y-2 backdrop-blur-sm">
-          <h2 className="text-xl font-bold mb-2 border-b border-white/40 pb-1">Missões</h2>
+          <h2 className="text-xl font-bold mb-2 border-b border-white/40 pb-1">
+            Missões
+          </h2>
 
           <div>
-            <h3 className="text-white/70 text-sm font-semibold">🌑 Principal</h3>
+            <h3 className="text-white/70 text-sm font-semibold">
+              🌑 Principal
+            </h3>
             <ul className="list-disc list-inside text-sm pl-2">
               <li>Encontrar a entrada do Templo</li>
               <li>Explorar as Ruínas Antigas</li>
@@ -51,7 +65,9 @@ function MapScreen() {
           </div>
 
           <div>
-            <h3 className="text-white/70 text-sm font-semibold mt-3">⭐ Secundária</h3>
+            <h3 className="text-white/70 text-sm font-semibold mt-3">
+              ⭐ Secundária
+            </h3>
             <ul className="list-disc list-inside text-sm pl-2">
               <li>Falar com o velho na Vila Inferior</li>
               <li>Coletar 3 fragmentos de cinza</li>
@@ -131,6 +147,9 @@ function MapScreen() {
           ⭐
         </button>
       </div>
+
+      <CardLoader visible={deckVisible} onClose={() => setDeckVisible(false)} />
+
     </div>
   );
 }
